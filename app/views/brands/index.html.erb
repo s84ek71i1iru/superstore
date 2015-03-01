@@ -1,3 +1,12 @@
+<% if notice %>
+  <div class="alert alert-success" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <%= notice %>
+  </div>
+<% end %>
+
 <h1>Brands List</h1>
 <table class="table">
   <tbody>
@@ -6,12 +15,20 @@
       <th>Name</th>
       <th>Description</th>
       <th>Website</th>
+      <th></th>
     </tr>
+    <% @brands.each do |brand| %>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><%= brand.id %></td>
+      <td><%= brand.name %></td>
+      <td><%= brand.description %></td>
+      <td><%= link_to brand.website, brand.website, target:('_blank') %></td>
+      <td>
+        <%= link_to 'Edit', edit_brand_path(brand), class:('btn btn-info') %>
+        <%= link_to 'Delete', brand, method: :delete, class:('btn btn-danger'), data: { confirm: 'Are you sure?'} %>
+      </td>
     </tr>
+    <% end %>
   </tbody>
 </table>
+<%= link_to 'New brand', new_brand_path, class:('btn btn-primary')%>

@@ -1,0 +1,31 @@
+<% if @brand.errors.any? %>
+<div class="panel panel-danger">
+  <div class="panel-heading">Problems</div>
+  <div class="panel-body">
+    <ul>
+      <% @brand.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
+
+<%= form_for @brand do |b| %>
+
+  <div class="form-group">
+    <%= b.label :name, "Name" %>
+    <%= b.text_field :name, class:"form-control" %><br />
+
+    <%= b.label :description, "Description" %>
+    <%= b.text_area :description, class:"form-control" %><br />
+
+    <%= b.label :website, "Website" %>
+    <%= b.text_field :website, class:"form-control" %><br />
+  </div>
+  <div class="action">
+    <%= b.submit "Submit", class:'btn btn-primary' %>
+    <%= link_to 'cancel', brands_path, class:('btn btn-danger') %>
+  </div>
+
+<% end %>
