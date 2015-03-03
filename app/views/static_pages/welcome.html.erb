@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>Hello Folks!</h1>
+    <p>Welcome to Dennis' Superstore!</p>
+    <p><%= link_to "Let's get start with brand", brands_path, class:('btn btn-primary btn-lg'), role:('button') %></p>
+
+  </div>
+</div>
+
+<div class="row">
+  <% titles = moretext_title %>
+  <% contents = moretext_content %>
+  <% 3.times do |index| %>
+  <div class="col-md-4">
+    <h2><%= titles[index] %></h2>
+    <p><%= contents[index] %></p>
+    <p><a class="btn btn-default" href="javascript:;" role="button">More</a></p>
+  </div>
+  <% end %>
+</div>

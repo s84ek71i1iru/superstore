@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'tires/index'
+
+  get 'static_pages/welcome'
+
   resources :brands
-  root 'brands#index'
+  root 'static_pages#welcome'
 end
