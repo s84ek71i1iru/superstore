@@ -1,2 +1,28 @@
-<h1>Tires#index</h1>
-<p>Find me in app/views/tires/index.html.erb</p>
+<h1>Tires</h1>
+<table class="table table-hover">
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Brand</th>
+      <th>Spec.</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Last update</th>
+    </tr>
+    <% @tires.each do |tire| %>
+    <tr>
+      <td><%= tire.name %></td>
+      <td><%= tire.brand.name %></td>
+      <td><%= tire.spec %></td>
+      <td><%= tire.description %></td>
+      <td><%= tire.price %></td>
+      <td><%= tire.start_date %></td>
+      <td><%= tire.end_date %></td>
+      <td><%= tire.updated_at.strftime('%Y-%m-%d %H:%I:%S') %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Tire', new_tire_path, class:('btn btn-success') %>

@@ -5,6 +5,9 @@ class CreateTires < ActiveRecord::Migration
       t.text :description
       t.date :start_date
       t.date :end_date
+      t.integer :price
+      t.string :spec
+      t.integer :brand_id
 
       t.timestamps null: false
     end

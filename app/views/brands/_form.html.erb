@@ -15,14 +15,19 @@
 
   <div class="form-group">
     <%= b.label :name, "Name" %>
-    <%= b.text_field :name, class:"form-control" %><br />
-
-    <%= b.label :description, "Description" %>
-    <%= b.text_area :description, class:"form-control" %><br />
-
-    <%= b.label :website, "Website" %>
-    <%= b.text_field :website, class:"form-control" %><br />
+    <%= b.text_field :name, class:"form-control" %>
   </div>
+
+  <div class="form-group">
+    <%= b.label :description, "Description" %>
+    <%= b.text_area :description, class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= b.label :website, "Website" %>
+    <%= b.text_field :website, class:"form-control" %>
+  </div>
+
   <div class="action">
     <%= b.submit "Submit", class:'btn btn-success' %>
     <%= link_to 'cancel', brands_path, class:('btn btn-danger') %>
