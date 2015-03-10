@@ -1,3 +1,12 @@
+<% if notice %>
+  <div class="alert alert-success" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <%= notice %>
+  </div>
+<% end %>
+
 <h1>Tires</h1>
 <table class="table table-hover">
   <tbody>
@@ -10,6 +19,7 @@
       <th>Start date</th>
       <th>End date</th>
       <th>Last update</th>
+      <th></th>
     </tr>
     <% @tires.each do |tire| %>
     <tr>
@@ -21,6 +31,10 @@
       <td><%= tire.start_date %></td>
       <td><%= tire.end_date %></td>
       <td><%= tire.updated_at.strftime('%Y-%m-%d %H:%I:%S') %></td>
+      <td>
+        <%= link_to 'Edit', edit_tire_path(tire), class: 'btn btn-primary' %>
+        <%= link_to 'Delete', tire, method: :delete, class: 'btn btn-danger', data: {confirm: ('Are you Sure?')} %>
+      </td>
     </tr>
     <% end %>
   </tbody>

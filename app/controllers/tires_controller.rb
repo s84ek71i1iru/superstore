@@ -1,9 +1,9 @@
 class TiresController < ApplicationController
 
-  before_action :find_tire, only:[:create, :edit, :update, :dectroy]
+  before_action :find_tire, only:[:create, :edit, :update, :destroy]
 
   def index
-    @tires = Tire.all
+    @tires = Tire.includes(:brand)
   end
 
   def new
@@ -24,9 +24,24 @@ class TiresController < ApplicationController
   end
 
   def update
+    if @tire.update(clean_data)
+      flash[:notice] = 'Update successfully'
+      redirect_to tires_path
+    else
+      flash[:notice] = 'Update error'
+      render 'form'
+    end
   end
 
   def destroy
+    if @tire.destroy
+      flash[:notie] = 'Delete successfully'
+    else
+      flash[:notice] = 'Delete error'
+    end
+
+    redirect_to tires_path
+
   end
 
   private
