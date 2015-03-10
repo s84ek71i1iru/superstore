@@ -26,9 +26,6 @@ ActiveRecord::Schema.define(version: 20150303091110) do
     t.text     "description"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "price"
-    t.string   "spec"
-    t.integer  "brand_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
