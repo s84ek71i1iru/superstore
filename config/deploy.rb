@@ -1,5 +1,3 @@
-require 'bundler/capistrano'
-
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
@@ -46,10 +44,4 @@ namespace :deploy do
       # end
     end
   end
-
-  after "deploy:setup", "deploy:setup_config"
-  	task :symlink_config, roles: :app do
-    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-  end
-
 end
