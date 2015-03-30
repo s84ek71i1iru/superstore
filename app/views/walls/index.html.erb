@@ -1,0 +1,24 @@
+<h1>Walls</h1>
+
+<table class="table">
+	<tbody>
+		<tr>
+			<th>Name</th>
+			<th>Created at</th>
+			<th>Updated at</th>
+			<th>Action</th>
+		</tr>
+		<% @walls.each do |wall| %>
+		<tr>
+			<td><%= wall.name %></td>
+			<td><%= wall.created_at %></td>
+			<td><%= wall.updated_at %></td>
+			<td>
+				<%= link_to 'Edit', edit_wall_path(wall), class: 'btn btn-success' %>
+				<%= link_to 'Delete', wall, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= link_to 'New Wall', new_wall_path, class: 'btn btn-primary' %>

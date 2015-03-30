@@ -1,0 +1,15 @@
+// Place all the styles related to the walls controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.div_table {
+	display: table;
+}
+.div_table_tr {
+	display: table-row;
+}
+.div_table_td {
+	display: table-cell;
+	height: 28px;
+	width: 28px;
+	border: 0px solid black;
+}
